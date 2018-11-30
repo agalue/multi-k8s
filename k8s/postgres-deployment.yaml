@@ -4,6 +4,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres-deployment
+  labels:
+    app: multi-k8s
 spec:
   replicas: 1
   selector:
@@ -13,6 +15,7 @@ spec:
     metadata:
       labels:
         component: postgres
+        app: multi-k8s
     spec:
       volumes:
         - name: postgres-storage

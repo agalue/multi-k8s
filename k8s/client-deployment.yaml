@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-deployment
+  labels:
+    app: multi-k8s
 spec:
   replicas: 3
   selector:
@@ -11,6 +13,7 @@ spec:
     metadata:
       labels:
         component: web
+        app: multi-k8s
     spec:
       containers:
         - name: client
